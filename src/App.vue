@@ -1,9 +1,7 @@
 <script setup>
 import app from './components/programm.vue'
-import Header from './components/header.vue'
 import '@material/web/all'
 </script>
-
 <template>
   <Header></Header>
   <div class="programm">
