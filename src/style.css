@@ -4,34 +4,20 @@
   font-family: 'Raleway', sans-serif;
   --md-ref-typeface-brand: 'Raleway';
   --md-ref-typeface-plain: system-ui;
-  --md-filled-button-container-shape: 10px;
-  --md-outlined-text-field-container-shape: 10px;
-  
 /*   -webkit-touch-callout: none; /* iOS Safari */
    /*  -webkit-user-select: none;  *//* Safari */
     /*  -khtml-user-select: none; */ /* Konqueror HTML */
       /*  -moz-user-select: none; */ /* Old versions of Firefox */
        /*  -ms-user-select: none;  *//* Internet Explorer/Edge */
     /*         user-select: none;  */ 
-    
 }
 
 
 body{
   margin: 0;
   background-color: var(--md-sys-color-surface);
-  
-
 }
-.programm{
+#app{
   max-width: 500px;
   margin: auto;
 }
-
-blockquote{
-  padding-left: 20px;
-  border-left: 4px solid var(--md-sys-color-outline);
-  color: var(--md-sys-color-outline);
-  margin: 0;
-}
-
