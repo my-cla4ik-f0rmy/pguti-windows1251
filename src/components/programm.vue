@@ -1,53 +1,58 @@
 <script setup>
 import '@material/web/all';
 import * as windows1251 from 'windows-1251';
+
 </script>
-
-
 <template>
-  <md-list>
-    <md-list-item>
+  <md-list style="padding: 0;">
+    <md-list-item style="padding: 0;">
       <div slot="headline">Windows-1251 в Текст</div>
     </md-list-item>
     <div>
-      <md-list-item>
-        <md-icon slot="start">123</md-icon>
-        <md-outlined-text-field id="CP1251Input" style="width: 100%;" type="text"></md-outlined-text-field>
+      <md-list-item style="overflow: visible;">
+        <md-outlined-text-field id="CP1251Input" style="width: 100%;" type="text">
+          <md-icon slot="leading-icon">123</md-icon></md-outlined-text-field>
       </md-list-item>
       <md-list-item>
         <md-filled-button @click="convertToText()" style="width: 100%;"><md-icon
             slot="icon">swap_horiz</md-icon>Перевести</md-filled-button>
       </md-list-item>
       <md-list-item>
-        <md-icon slot="start">abc</md-icon>
-        <md-outlined-text-field :value="this.textOutput" style="width: 100%;"></md-outlined-text-field>
-        <md-icon-button @click="copy(this.textOutput)" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
+        <md-outlined-text-field :value="textOutput" style="width: 100%;">
+          <md-icon slot="leading-icon">abc</md-icon>
+          <md-icon-button slot="trailing-icon" @click="copy(textOutput)">
+            <md-icon>content_copy</md-icon>
+          </md-icon-button>
+        </md-outlined-text-field>
+        <!-- <md-icon-button @click="copy(textOutput)" slot="end"><md-icon>content_copy</md-icon></md-icon-button> -->
       </md-list-item>
     </div>
-    <md-list-item> <md-divider></md-divider></md-list-item>
+    <md-list-item><md-divider></md-divider></md-list-item>
     <div>
       <md-list-item>
         <div slot="headline">Текст в Windows-1251 и двоичный код</div>
       </md-list-item>
       <md-list-item>
-        <md-icon slot="start">abc</md-icon>
-        <md-outlined-text-field id="textInput" style="width: 100%;" type="text"></md-outlined-text-field>
+        <md-outlined-text-field id="textInput" style="width: 100%;" type="text">
+          <md-icon slot="leading-icon">abc</md-icon></md-outlined-text-field>
       </md-list-item>
       <md-list-item>
         <md-filled-button @click="convertToCP1251()" style="width: 100%;"><md-icon
             slot="icon">swap_horiz</md-icon>Перевести</md-filled-button>
       </md-list-item>
       <md-list-item>
-        <md-icon slot="start">123</md-icon>
-        <md-outlined-text-field :value="this.CP1251Output" style="width: 100%;"></md-outlined-text-field>
-        <md-icon-button @click="copy(this.CP1251Output)" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
-
-        <!--       <md-icon-button @click="copy()" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
- --> </md-list-item>
+        <md-outlined-text-field :value="CP1251Output" style="width: 100%;">
+          <md-icon slot="leading-icon">123</md-icon>
+          <md-icon-button slot="trailing-icon"
+            @click="copy(CP1251Output)"><md-icon>content_copy</md-icon></md-icon-button>
+        </md-outlined-text-field>
+      </md-list-item>
       <md-list-item>
-        <md-icon slot="start">code</md-icon>
-        <md-outlined-text-field :value="this.CP1251_BinaryOutput" style="width: 100%;"></md-outlined-text-field>
-        <md-icon-button @click="copy(this.CP1251_BinaryOutput)" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
+        <md-outlined-text-field :value="CP1251_BinaryOutput" style="width: 100%;"><md-icon
+            slot="leading-icon">code</md-icon>
+          <md-icon-button slot="trailing-icon"
+            @click="copy(CP1251_BinaryOutput)"><md-icon>content_copy</md-icon></md-icon-button></md-outlined-text-field>
+
       </md-list-item>
     </div>
     <md-list-item> <md-divider></md-divider></md-list-item>
@@ -56,24 +61,30 @@ import * as windows1251 from 'windows-1251';
         <div slot="headline">Двоичный код в Windows-1251 и текст</div>
       </md-list-item>
       <md-list-item>
-        <md-icon slot="start">code</md-icon>
-        <md-outlined-text-field id="BinaryInput" style="width: 100%;" type="text"></md-outlined-text-field>
+
+        <md-outlined-text-field id="BinaryInput" style="width: 100%;" type="text">
+          <md-icon slot="leading-icon">code</md-icon></md-outlined-text-field>
       </md-list-item>
       <md-list-item>
         <md-filled-button @click="Binary2Text2CP1251()" style="width: 100%;"><md-icon
             slot="icon">swap_horiz</md-icon>Перевести</md-filled-button>
       </md-list-item>
       <md-list-item>
-        <md-icon slot="start">123</md-icon>
-        <md-outlined-text-field :value="this.BinaryCP1251Output" style="width: 100%;"></md-outlined-text-field>
-        <md-icon-button @click="copy(this.BinaryCP1251Output)" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
+        <md-outlined-text-field :value="BinaryCP1251Output" style="width: 100%;">
+          <md-icon slot="leading-icon">123</md-icon>
+          <md-icon-button slot="trailing-icon"
+            @click="copy(BinaryCP1251Output)"><md-icon>content_copy</md-icon></md-icon-button>
+        </md-outlined-text-field>
 
         <!--       <md-icon-button @click="copy()" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
  --> </md-list-item>
       <md-list-item>
-        <md-icon slot="start">abc</md-icon>
-        <md-outlined-text-field :value="this.BinarytextOutput" style="width: 100%;"></md-outlined-text-field>
-        <md-icon-button @click="copy(this.BinarytextOutput)" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
+        <md-outlined-text-field :value="BinarytextOutput" style="width: 100%;">
+          <md-icon slot="leading-icon">abc</md-icon>
+          <md-icon-button slot="trailing-icon"
+            @click="copy(BinarytextOutput)"><md-icon>content_copy</md-icon></md-icon-button>
+        </md-outlined-text-field>
+
 
         <!--       <md-icon-button @click="copy()" slot="end"><md-icon>content_copy</md-icon></md-icon-button>
  --> </md-list-item>
@@ -191,6 +202,4 @@ export default {
 
 </script>
 
-<style scoped>
-#input {}
-</style>
+
