@@ -2,7 +2,7 @@
     <div class="header">
         <img class="icon" src="/icon.svg">
         <div class="text">
-            dev 1.0
+            dev 1.1
         </div>
     </div>
 </template>
