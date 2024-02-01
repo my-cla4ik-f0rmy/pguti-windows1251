@@ -2,7 +2,7 @@
     <div class="header">
         <img class="icon" src="/icon.svg">
         <div class="text">
-            pguti-windows1251 потому что я могу это сделать!
+            pguti-windows1251 Develop
         </div>
     </div>
 </template>
